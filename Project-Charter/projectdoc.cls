@@ -1,9 +1,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%% INFORMATION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Project document template for Mälardalen University                                       %
-% Layout design: Bo Tonnquist, Baseline Management AB, 2016                  %
+% Project document template for Mälardalen University                          %
+% Layout design: Bo Tonnquist, Baseline Management AB, 2018                    %
 % Class creator: Emil Persson (epn17006@student.mdh.se)                        %
-% Version:       1.0 (2021/03/15)                                              %
-% Licence: CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)%  
+% Version:       1.1 (2021/08/25)                                              %
+% Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)            %  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
