@@ -156,7 +156,7 @@
 \newcommand{\circR}{\textsuperscript{\textregistered}}
 % set the style for the section and subsection headers
 \renewcommand{\thesection}{\thepart \arabic{section}.}
-\renewcommand{\thesubsection}{\thepart \arabic{section}.\arabic{subsection}.}
+\renewcommand{\thesubsection}{\thepart \arabic{section}.\arabic{subsection}}
 
 \makeatletter
 
