@@ -1,0 +1,106 @@
+\usepackage[scale=2]{ccicons}
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[swedish,english]{babel}
+\makeatletter
+\hypersetup{pdftitle={\@title},pdfauthor={\@author},allcolors=black, hidelinks}
+\makeatother
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{bookmark}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{float}
+\usepackage{textpos}
+\usepackage{cancel}
+\usepackage{makecell}
+\usepackage{empheq}  % boxing equations
+\usepackage{multicol}
+\usepackage{animate}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage[b]{esvect} % for the \vv
+\usepackage[most]{tcolorbox}
+\usepackage{epsfig,graphicx,psfrag}
+\usepackage{wrapfig}
+\usepackage{times}
+% \usepackage{minted}    % Mac OS X: sudo easy_install Pygments
+                       % latex -shell-escape slides.tex
+
+% Define custom colors
+\definecolor{harvardcrimson}{rgb}{0.79,0.0,0.09}
+\definecolor{cornellred}{rgb}{0.8,0.11,0.11}
+\definecolor{bostonuniversityred}{rgb}{0.8,0,0}
+\definecolor{burgundy}{rgb}{0.5,0,0.13}
+\definecolor{crimsonglory}{rgb}{0.75,0,0.2}
+\definecolor{cyanproc}{rgb}{0,0.72,0.92}
+\definecolor{denim}{rgb}{0.08,0.38,0.74}
+
+% Declare Math Operators
+\DeclareMathOperator{\sign}{sgn}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\de}{\,\mathrm{d}\!}
+\DeclareMathOperator{\imp}{imp}
+\DeclareMathOperator{\stp}{step}
+\DeclareMathOperator{\ram}{ram}
+\DeclareMathOperator{\dB}{dB}
+\DeclareMathOperator{\atan}{atan}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator{\nullSpace}{ker}
+\DeclareMathOperator*{\minimize}{minimize}
+\DeclareMathOperator*{\maximize}{maximize}
+
+% New commands
+\newcommand*\blue[1]{%
+\colorbox{blue!10}{\hspace{1em}#1\hspace{1em}}}
+\newcommand*\red[1]{%
+\colorbox{red!10}{\hspace{1em}#1\hspace{1em}}}
+\newcommand*\green[1]{%
+\colorbox{green!10}{\hspace{1em}#1\hspace{1em}}}
+\newcommand{\myPause}{\pause}
+\newcommand{\laplace}[1]{\mathcal{L}\left\lbrace #1 \right\rbrace(s)}
+\newcommand{\invlaplace}[1]{\mathcal{L}^{-1}\left\lbrace #1 \right\rbrace(t)}
+\DeclareMathOperator{\cov}{covar}
+\newcommand{\bs}[1]{\boldsymbol{\mathrm{#1}}}
+\newcommand{\tb}[1]{\alert{\textbf{#1}}}
+\newcommand{\colr}[1]{\textcolor{red}{\textbf{#1}}}
+\newcommand{\colb}[1]{\textcolor{blue}{\textbf{#1}}}
+\newcommand{\colt}[1]{\textcolor{teal}{\textbf{#1}}}
+
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{remark}{Remark}
+
+%% Beamer slides settings
+
+\setbeamercolor{frametitle}{bg=white, fg=harvardcrimson}
+\setcounter{tocdepth}{2} % Only sections and subsections in toc
+
+\setbeamercolor{alerted text}{fg=harvardcrimson,bg=white}
+\setbeamertemplate{theorems}[unnumbered]
+\setbeamertemplate{theorems}[ams style]
+\setbeamertemplate{theorems}[numbered]
+
+\usetheme[outer/progressbar=foot,]{metropolis}
+\metroset{sectionpage=progressbar}
+\metroset{subsectionpage=progressbar}
+\setbeamercolor{background canvas}{bg=white}
+\metroset{block=fill}
+
+\setbeamertemplate{itemize items}[circle] 
+\setbeamertemplate{itemize subitem}[square] % Beamer-Template/-Color/-Font 
+\setbeamertemplate{itemize subsubitem}[ball] % Beamer-Template/-Color/-Font 
+
+
+\graphicspath{{image/}}
+\titlegraphic{\hfill\includegraphics[scale=0.5]{__logo}}
+
+
+\setbeamertemplate{frame footer}{
+\hspace*{1em}\vspace*{-2mm}\tikz{\node[font=\tiny]{\insertsectionhead};}%
+}

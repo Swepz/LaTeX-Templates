@@ -1,0 +1,61 @@
+\documentclass[11pt,aspectratio=1610]{beamer}
+\usepackage[british,style=iso]{datetime2}  
+\title[Short title]{Presentation template}
+\subtitle{Subtitle}
+\author[Short Author Name]{Author Name}
+\institute[@MDH]{%
+Mälardalen University\\{%
+\scriptsize \texttt{name.surname@mdh.se}\\%
+\texttt{http://www.es.mdh.se}}\\%
+Version: \today}
+
+\date{\today}
+
+\input{include.tex}
+
+\begin{document}
+\maketitle
+
+\begin{frame}{Outline slide}
+\begin{center}
+\end{center}
+\bigskip\bigskip
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{Slide examples}
+\begin{frame}{Math slide}
+This is a common equation
+\begin{align*}
+& \dot{\bs{x}}(t) = A \bs{x}(t) + B \bs{u}(t)\\
+& y(t) = C \bs{x}(t) + D \bs{u}(t)
+\end{align*}
+
+This is an emphasized equation (blue box)
+\begin{empheq}[box=\blue]{align*}
+& \bs{x}(t) = e^{At}\bs{x}(0) + \int_{0}^{t} e^{A(t-\tau)B\bs{u}(\tau)\, }\de\tau
+\end{empheq}
+
+This is an emphasized equation (red box)
+\begin{empheq}[box=\red]{align*}
+& G(s) = C (sI - A)^{-1}B + D
+\end{empheq}
+
+This is an emphasized equation (green box)
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{empheq}[box=\green]{align*}
+& \laplace{\stp(t)} = \dfrac{1}{s}
+\end{empheq}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{empheq}[box=\green]{align*}
+& \invlaplace{\dfrac{1}{s}} = \stp(t)
+\end{empheq}
+\end{column}
+\end{columns}
+
+\end{frame}
+
+\end{document}
