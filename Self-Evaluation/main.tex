@@ -1,0 +1,76 @@
+\documentclass{article}
+\usepackage{geometry}
+\geometry{margin=2.5cm, headsep=45pt}
+\usepackage[utf8]{inputenc}
+\usepackage[swedish]{babel}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\usepackage{titlesec}
+\titleformat*{\section}{\large\bfseries}
+\titleformat*{\subsection}{\normalsize\bfseries}
+\titleformat*{\subsubsection}{\small\bfseries}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{trackchanges}
+\usepackage{cleveref}
+\setlength{\headheight}{35pt}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{ Division of Intelligent Future Technologies\\
+School for Innovation, Design and, Technology\\
+Mälardalens Högskola}
+\rhead{YOUR FULL NAME HERE\\
+DVA490/DVA474 Self-Evaluation\\
+\today}
+\cfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
+
+% Authored by Mikael Ekström, template formatted by Henrik Falk @ Mälardalens Högskola IDT / IFT for DVA490/DVA474
+
+\begin{document}
+\section*{Grading criteria}
+The self-evaluation should show that the student,
+\begin{itemize}
+    \item is able to describe how they are building up knowledge.
+    \item is able to motivate the decisions made during the work.
+
+    \item understands his/her duties and responsibilities in the different phases of the project, and how they contribute to the common goal of the group. 
+    \item is able to describe comprehensively the challenges that are being faced. The student needs to find the right level of abstraction, in order to convey these challenges.
+    \item is able to come up or describe a preliminary strategy for overcoming the challenges. 
+
+\end{itemize}
+The report should be typeset with \LaTeX.
+
+\section*{Goal of the self-evaluation}
+The self-evaluation should be seen as an exercise in communication, where students practice in describing their work with respect to technical aspects, group dynamics, or other issues that can arise. All the included sections should contain information that addresses the grading criteria, e.g., reading scientific papers~\cite{Ekstrom20011845221} or technical reports~\cite{thruster} for acquiring knowledge. The target audience of the self-evaluation are fellow students, teachers of the program, representatives from companies, e.g., engineers. 
+
+The language is not required to be formal, i.e., the student can write with their own preferred style. Nevertheless, the ideas should be described comprehensively, motivated with adequate arguments. Finally, Latex should be used for writing the self-evaluations. 
+\section*{Included parts in the self evaluation}
+The following items need to be addressed in the self-evaluation:
+\section*{What have I learned and how have I developed during this period}
+\textbf{Example text:}
+
+During the course of this period I have been made aware of the importance of parallel work and the integration of produced solutions. Ever since I was moved to the Electronics group, a large part of my work has been creating software modules for already existing programs and interfacing other member's programs in my code. For example I created a matlab program that interfaced with the stabilization code to produce debug graph data. This stabilization code then received an altitude stabilization module by Amil that I incorporated into the program. Later I worked with Emil to interface our stabilization program with his Bluetooth communication program to be able to control our QC wirelessly. All of this was possible through coordinated efforts by different members of our project group, and it is extremely important to communicate with each other and have the same "big picture" in mind in order to utilize the ntire project group optimally.\\ 
+I also learned that standardizing and creating exhaustive tests are crucial for development. In the beginning we simply ran a flight test, adjusted some parameters and ran a new one. It wasn't until roughly a week later we realized that it would be of interest to easily evaluate past tests and improve the consistency of the test results. This is why we started each recording by saying the different parameter values and the test type, as well as running each test three times to better remove "flukes" in results.  
+
+\section*{My contribution during this period and how it has affected the project}
+Explain how the work done contributes to the project as a whole, and consequently to the work of the other project members.
+
+
+\section*{Related work[optional]}
+Other work that supports the validity of my contribution%~\cite{Ekstrom20011845221}.
+
+\section*{Future work}
+What do you see are your future challenges in the project(s) and how do you plan do solve these?
+
+\section*{Argument for a passing grade}
+Explain why, in relation to the text in this document and previous documents. Do not forget to reference them.
+
+\begin{thebibliography}{99}
+\bibitem{Ekstrom20011845221}{{Ekström, M. and Hartmann, O. and Karlsson, E. and Lidström, E. and Granberg, P. and Nygren, M.}, {Physical Review B - Condensed Matter and Materials Physics}, \textbf{Vol. 64 nr. 18, 2001},\textit{Antiferromagnetism in {Zn-doped La$_2$CuO$_4$} as observed by muon spin resonance spectroscopy}}
+\bibitem{thruster}
+Optimal Thruster Configuration for Omni-directional Underwater Vehicles - \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=724320}
+\end{thebibliography}
+
+\end{document}
