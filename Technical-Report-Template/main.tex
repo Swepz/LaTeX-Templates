@@ -30,11 +30,13 @@ colorlinks=true,linkcolor={black},citecolor={black},urlcolor={black}%
 \usepackage{cleveref}
 \graphicspath{{images/}}
 
-% Remove first paragraph indent
+% Remove section first paragraph indent
 \usepackage{titlesec}
-\titlespacing*{\section}{0pt}{1.5ex}{1.5ex}
-\titlespacing*{\subsection}{0pt}{1.5ex}{1.5ex}
-\titlespacing*{\subsubsection}{0pt}{1.5ex}{0.5ex}
+\titlespacing*{\section}{0pt}{*1}{*1}
+\titlespacing*{\subsection}{0pt}{*1}{*1}
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+\titleformat{\subsubsection}[runin]{\itshape}{\thesubsubsection)}{1em}{}[:]
+\titlespacing*{\subsubsection}{\parindent}{0pt}{*1}
 
 % Include authors 
 \author{\IEEEauthorblockN{ %
