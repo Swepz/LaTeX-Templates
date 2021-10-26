@@ -46,25 +46,6 @@
 \titleformat{\subsection}{\vspace{-3mm}\large\bfseries}{}{0em}%
 {\normalsize\bfseries\thesection.\arabic{subsection}\quad}[{\titlerule[0.4pt]}]
 
-\newtoggle{WithinFramedSection}%
-\togglefalse{WithinFramedSection}%
-
-\let\OldSection\section%
-\def\section{\EndFramedIfNeeded\OldSection}%
-\newcommand*{\EndFramedIfNeeded}{%
-    \iftoggle{WithinFramedSection}{%
-        \global\togglefalse{WithinFramedSection}%
-        \end{mdframed}% End previous framed section
-    }{}%
-}%
-
-\renewcommand*{\section}[1]{%
-    \EndFramedIfNeeded%
-    \global\toggletrue{WithinFramedSection}%
-    \OldSection{#1}\vspace{-4mm}\begin{mdframed}%
-}%
-\AtEndDocument{\EndFramedIfNeeded}%
-
 \makeatletter
 
 \renewcommand{\@maketitle}[1][]{%
