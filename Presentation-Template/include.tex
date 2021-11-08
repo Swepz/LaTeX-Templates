@@ -5,7 +5,8 @@
 \usepackage[T1]{fontenc}
 \usepackage[swedish,english]{babel}
 \makeatletter
-\hypersetup{pdftitle={\@title},pdfauthor={\@author},allcolors=black, hidelinks}
+% pdfusetitle exists class
+\hypersetup{allcolors=black, hidelinks}
 \makeatother
 \usepackage{mathtools}
 \usepackage{xcolor}
@@ -28,7 +29,7 @@
 \usepackage{wrapfig}
 \usepackage{times}
 % \usepackage{minted}    % Mac OS X: sudo easy_install Pygments
-                       % latex -shell-escape slides.tex
+% latex -shell-escape slides.tex
 
 % Define custom colors
 \definecolor{harvardcrimson}{rgb}{0.79,0.0,0.09}
@@ -58,11 +59,11 @@
 
 % New commands
 \newcommand*\blue[1]{%
-\colorbox{blue!10}{\hspace{1em}#1\hspace{1em}}}
+    \colorbox{blue!10}{\hspace{1em}#1\hspace{1em}}}
 \newcommand*\red[1]{%
-\colorbox{red!10}{\hspace{1em}#1\hspace{1em}}}
+    \colorbox{red!10}{\hspace{1em}#1\hspace{1em}}}
 \newcommand*\green[1]{%
-\colorbox{green!10}{\hspace{1em}#1\hspace{1em}}}
+    \colorbox{green!10}{\hspace{1em}#1\hspace{1em}}}
 \newcommand{\myPause}{\pause}
 \newcommand{\laplace}[1]{\mathcal{L}\left\lbrace #1 \right\rbrace(s)}
 \newcommand{\invlaplace}[1]{\mathcal{L}^{-1}\left\lbrace #1 \right\rbrace(t)}
@@ -92,7 +93,7 @@
 \setbeamercolor{background canvas}{bg=white}
 \metroset{block=fill}
 
-\setbeamertemplate{itemize items}[circle] 
+\setbeamertemplate{itemize items}[circle]
 \setbeamertemplate{itemize subitem}[square] % Beamer-Template/-Color/-Font 
 \setbeamertemplate{itemize subsubitem}[ball] % Beamer-Template/-Color/-Font 
 
@@ -102,5 +103,5 @@
 
 
 \setbeamertemplate{frame footer}{
-\hspace*{1em}\vspace*{-2mm}\tikz{\node[font=\tiny]{\insertsectionhead};}%
+    \hspace*{1em}\vspace*{-2mm}\tikz{\node[font=\tiny]{\insertsectionhead};}%
 }
