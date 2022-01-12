@@ -69,9 +69,9 @@
 \makeatletter
 
 \renewcommand{\@maketitle}[1][]{%
-\IfFileExists{logo.pdf}{
+\IfFileExists{logo.eps}{
     \begin{flushleft}
-            \begin{figure}[H]\includegraphics[width=60mm]{logo.pdf}
+            \begin{figure}[H]\includegraphics[width=30mm]{logo.eps}
     		\end{figure}
             \vspace{-12mm}
      \end{flushleft}

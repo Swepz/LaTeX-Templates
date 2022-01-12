@@ -99,9 +99,10 @@
 \newcommand{\titlePage}{
     \begin{titlepage}
         \begin{center}
-            \IfFileExists{images/MDHlogga.png}{
+            \IfFileExists{images/MDHlogga.eps}{
             \begin{flushleft}
-            \begin{figure}[H]\includegraphics[width=15mm, bb=0 0 100 100]{images/MDHlogga.png}
+              \vspace*{-20mm}
+              \begin{figure}[H]\includegraphics[width=40mm]{images/MDHlogga.eps}
     		\end{figure}
             \end{flushleft}
             }{

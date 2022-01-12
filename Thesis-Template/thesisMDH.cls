@@ -99,9 +99,10 @@
 \newcommand{\titlePage}{
     \begin{titlepage}
         \begin{center}
-            \IfFileExists{images/MDHlogga.png}{
+            \IfFileExists{images/MDHlogga.eps}{
             \begin{flushleft}
-            \begin{figure}[H]\includegraphics[width=15mm, bb=0 0 100 100]{images/MDHlogga.png}
+              \vspace*{-10mm}
+            \begin{figure}[H]\includegraphics[width=40mm]{images/MDHlogga.eps}
     		\end{figure}
             \end{flushleft}
             }{
@@ -142,7 +143,7 @@
                 \ifdef{\compSuperName}{\compSuperName \\}{}
                 
             \end{flushleft}
-            \ifdef{\datum}{\datum}{\vspace*{\fill}\warning{Missing date}}
+            \ifdef{\datum}{\datum}{\vspace*{\hfill}\warning{Missing date}}
         \end{center}
     \end{titlepage}
 }
