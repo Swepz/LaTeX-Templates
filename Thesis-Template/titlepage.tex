@@ -1,0 +1,72 @@
+\NewDocumentCommand{\thesisTitle} { o m }{%
+ \IfValueTF{#1}{\def\shorttitle{#1}}{\def\shorttitle{#2}}%
+ \def\@title{#2}%
+ \def\theTitleName{\huge{\textbf{\uppercase{#2}}}}%
+}
+\NewDocumentCommand{\authorOne}{m m}{
+\newcommand{\authorOneName}{\Large{#1} \\ \parindent0pt\small{#2}}}
+
+\NewDocumentCommand{\authorTwo}{m m}{
+\newcommand{\authorTwoName}{\Large{#1} \\ \parindent0pt\small{#2}}}
+
+\NewDocumentCommand{\authorThree}{m m}{
+\newcommand{\authorThreeName}{\Large{#1} \\ \parindent0pt\small{#2}}}
+
+\NewDocumentCommand{\authorFour}{m m}{
+\newcommand{\authorFourName}{\Large{#1} \\ \parindent0pt\small{#2}}}
+
+\NewDocumentCommand{\subject}{m}{\newcommand{\subjectName}{\Large{#1}}}
+\NewDocumentCommand{\university}{m}{\newcommand{\uniName}{\Large{#1}}}
+\NewDocumentCommand{\department}{m}{\newcommand{\depName}{\Large{#1}}}
+\NewDocumentCommand{\degree}{m}{\newcommand{\degreeName}{\Large{#1}}}
+
+\NewDocumentCommand{\examiner}{m m}{
+\newcommand{\examName}{\large{Examiner: #1} \\ \small{#2}}}
+
+\NewDocumentCommand{\supervisors}{m m}{
+\newcommand{\superName}{\large{Supervisor(s): #1} \\ \small{#2}}}
+
+\NewDocumentCommand{\companySupervisors}{m m}{
+\newcommand{\compSuperName}{\large{Company Supervisor(s): #1} \\ \small{#2}}}
+
+\NewDocumentCommand{\theDate}{m}{\newcommand{\datum}{\vspace*{\fill}\large #1}}
+
+\newcommand{\warning}[1]{\centering{\textcolor{red}{\large{\textbf{\uppercase{#1\\}}}}}}
+\newcommand{\alert}[1]{\textcolor{red}{\textit{\scriptsize\textbf{\uppercase{#1}}}}}
+
+\newcommand{\titlePage}{
+    \begin{titlepage}
+        \begin{center}
+            \IfFileExists{images/MDHlogga.eps}{
+            \begin{flushleft}
+              \vspace*{-10mm}
+            \begin{figure}[H]\includegraphics[width=40mm]{images/MDHlogga.eps}
+    		\end{figure}
+            \end{flushleft}
+            }{
+    		\begin{flushleft}
+    		\warning{MDHlogo \\ missing}
+    		\end{flushleft}
+    		}
+            \ifdef{\uniName}{\vspace{-5mm}\uniName\\}{\warning{Missing university name}}
+            \ifdef{\depName}{\depName\\}{\warning{Missing department name}} 
+            \noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}} \\
+            \vspace{5mm}
+            \ifdef{\subjectName}{\subjectName}{\warning{Missing course name}} \\
+            \vspace{10mm}
+    		\ifdef{\theTitleName}{\theTitleName}{\warning{Missing title}} \\
+    		\vspace{25mm}
+    		\ifdef{\authorOneName}{\authorOneName \\ \vspace{5mm}}{\warning{Missing authorOne}} 
+    		\ifdef{\authorTwoName}{\authorTwoName \\ \vspace{5mm}}{}
+    		\ifdef{\authorThreeName}{\authorThreeName \\ \vspace{5mm}}{}
+    		\ifdef{\authorFourName}{\authorFourName \\}{}
+            \vspace{15mm}
+            \begin{flushleft}
+                \ifdef{\examName}{\examName \\ \vspace{5mm}}{}
+                \ifdef{\superName}{\superName \\ \vspace{5mm}}{}
+                \ifdef{\compSuperName}{\compSuperName \\}{}
+            \end{flushleft}
+            \ifdef{\datum}{\datum}{\vspace*{\hfill}\warning{Missing date}}
+        \end{center}
+    \end{titlepage}
+}

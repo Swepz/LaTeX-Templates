@@ -1,8 +1,6 @@
 \documentclass[times, 10pt]{thesisMDH}
-\usepackage[british,style=iso]{datetime2}  
-\usepackage[pdfusetitle, allcolors=black, hidelinks, pdftex]{hyperref} 
-\addbibresource{references.bib}
-
+\usepackage[british,style=iso]{datetime2} 
+\usepackage[pdfusetitle, allcolors=black, hidelinks, pdftex]{hyperref}
 \fancyHeader{Short title of the thesis}{Authors}
 
 \university{Mälardalen University}
@@ -22,20 +20,14 @@
 
 \begin{document}
 \titlePage
-% Begin actual text
-\frontmatter
-\input{sections/000-guideline} % Remove 000-guideline section
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+\newpage
 \input{sections/abstract}
 \newpage
-%========= Tables ==========
-{\hypersetup{linkcolor=black}\tableofcontents}
-\clearpage
-{\hypersetup{linkcolor=black}\listoffigures}
-\clearpage
-{\hypersetup{linkcolor=black}\listoftables}
- 
-\mainmatter
-% ===== Content: Modify the structure according to your needs =======
 \input{sections/introduction}
 \newpage
 \input{sections/background} %SOTA
@@ -54,22 +46,8 @@
 \newpage
 \input{sections/conclusions}
 \newpage
-%\input{sections/Acknowledgments}
 % ============================= References ============================
-% \newpage
-\printbibliography
-\addcontentsline{toc}{section}{References}
-
-% ============================ Appendices =============================
-%\newpage
-%\begin{appendices}
-
-	%\input{appendices/appendices1}
-	%\clearpage
-	
-	%\input{appendices/appendices2}
-	%\clearpage
-	
-%\end{appendices}
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,references}
 
 \end{document}
