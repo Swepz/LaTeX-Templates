@@ -106,3 +106,39 @@
 \setbeamertemplate{frame footer}{
     \hspace*{1em}\vspace*{-2mm}\tikz{\node[font=\tiny]{\insertsectionhead};}%
 }
+\makeatletter
+\setbeamertemplate{title page}{
+  \vbox{}
+  \vfill
+  \begingroup
+    \begin{minipage}{.75\textwidth}
+    \begin{beamercolorbox}[sep=8pt]{white}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%     
+    \end{beamercolorbox}%
+    \end{minipage}
+    \begin{minipage}{.2\textwidth}
+        {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+    \end{minipage}
+    {\centering\vspace*{-1em}\rule{0.95\textwidth}{1pt}}
+    \vskip1em\par
+    \begin{minipage}{0.7\textwidth}
+    \begin{beamercolorbox}[sep=8pt]{white}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \end{minipage}
+
+    \begin{minipage}{.5\textwidth}
+    \begin{beamercolorbox}[sep=8pt]{white}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \end{minipage}
+
+  \endgroup
+  \vfill
+}
+\makeatother
