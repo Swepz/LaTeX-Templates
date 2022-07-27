@@ -24,7 +24,7 @@
 \RequirePackage{xcolor}
 \RequirePackage{tabularx}
 \RequirePackage{ifthen}
-
+\RequirePackage{epstopdf}
 % Swedish language package 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
