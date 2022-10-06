@@ -46,6 +46,9 @@
 \titleformat{\subsection}{\vspace{-3mm}\large\bfseries}{}{0em}%
 {\normalsize\bfseries\thesection.\arabic{subsection}\quad}[{\titlerule[0.4pt]}]
 
+\titleformat{\subsubsection}{\vspace{-3mm}\large\bfseries}{}{0em}%
+{\normalsize\bfseries\thesection.\arabic{subsection}.\arabic{subsubsection}\quad}[{\titlerule[0.4pt]}]
+
 \makeatletter
 
 \renewcommand{\@maketitle}[1][]{%
@@ -93,5 +96,20 @@
 \fancyfoot[R]{#2}
 \renewcommand{\footrulewidth}{0.4pt}
 
+}
+\NewDocumentCommand{\secauthor}{m}{%
+  {\parindent0pt\vspace{-12pt}%
+  \color{gray}\itshape\scriptsize{Author: #1}%
+  \par\nobreak\vspace*{0pt}\noindent}
+}
+\NewDocumentCommand{\subauthor}{m}{%
+  {\parindent0pt\vspace{-4pt}%
+  \color{gray}\itshape\scriptsize{Author: #1}%
+  \par\nobreak\vspace*{0pt}\noindent}
+}
+\NewDocumentCommand{\subsubauthor}{m}{%
+  {\parindent0pt\vspace{-8pt}%
+  \color{gray}\itshape\scriptsize{Author: #1}%
+  \par\nobreak\vspace*{0pt}\noindent}
 }
 \RequirePackage[british,style=iso]{datetime2}
