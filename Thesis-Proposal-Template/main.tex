@@ -1,7 +1,6 @@
-\documentclass[times, 10pt]{thesisMDH}
+\documentclass[times]{thesisMDU}
 \usepackage[british,style=iso]{datetime2}  
 \usepackage[pdfusetitle, allcolors=black, hidelinks, pdftex]{hyperref} 
-\addbibresource{refs.bib}
 
 % MASTER THESIS TEMPLATE MODIFIED FOR PROPOSAL BY HENRIK.FALK@MDH.SE
 
@@ -14,12 +13,13 @@
 \subject{Master Thesis Proposal \\ Course Code: XXX000}
 \thesisTitle{Preliminary Title For The Thesis}
 
-\authorOne{Student1}{studentEmail@student.mdh.se}
-\authorTwo{Student2}{studentEmail@student.mdh.se}
+\addAuthor{Student One}{student.one@student.mdu.se}
+\addAuthor{Student Two}{student.two@student.mdu.se}
 
-\examiner{Examiner-Name (if any)\footnote{\label{1}\textit{\warning{[must have been discussed with them before submitted the proposal to the evaluation committee. Supervisors and examiners cannot be added without their consent]}}}}{University, location}
-\supervisors{Supervisor-Name (if any)\textsuperscript{1}}{University, location}
-\companySupervisors{Supervisor-Name (if any)\textsuperscript{1}}{Company name, location}
+\addSupervisor{Examiner}{First Lastname}{Mälardalen University, Västerås}
+\addSupervisor{Supervisor}{First Lastname}{Mälardalen University, Västerås}
+\addSupervisor{Supervisor}{First Lastname}{Company Name, City}
+
 
 \theDate{\today} 
 
@@ -31,8 +31,9 @@
 \input{sections/proposal}
 
 % ============================= References ============================
-%\newpage
-\printbibliography
-%\addcontentsline{toc}{section}{References}
+\newpage
+\bibliographystyle{plainnat}
+\bibliography{references}
+\addcontentsline{toc}{section}{References}
 
 \end{document}
