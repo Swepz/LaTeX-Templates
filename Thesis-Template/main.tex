@@ -1,30 +1,27 @@
-\documentclass[times, 10pt]{thesisMDH}
+\documentclass[times]{thesisMDU}
 \usepackage[british,style=iso]{datetime2}  
-\usepackage[pdfusetitle, allcolors=black, hidelinks, pdftex]{hyperref} 
-\addbibresource{references.bib}
-
 \fancyHeader{Short title of the thesis}{Authors}
-
 \university{Mälardalen University}
-
 \department{School of Innovation Design and Engineering\\ Västerås, Sweden}
 
-\subject{Thesis for the Degree of Master of Science in Engineering - Robotics 30.0 credits}
-\thesisTitle{Master Thesis Title}
-\authorOne{Student Name1}{studentEmail@student.mdh.se}
-\authorTwo{Student Name2}{studentEmail@student.mdh.se}
+\subject{Thesis for the Degree of Master of Science in Engineering - Robotics \\ 30.0 credits}
+\thesisTitle{Thesis Title}
+\addAuthor{Student One}{student.one@student.mdu.se}
+\addAuthor{Student Two}{student.two@student.mdu.se}
+\addAuthor{Student Three}{student.three@student.mdu.se}
+\addAuthor{Student Four}{student.four@student.mdu.se}
+\addAuthor{Student Five}{student.five@student.mdu.se}
+\addAuthor{Student Six}{student.six@student.mdu.se}
 
-\examiner{Examiner-Name}{Mälardalen University, Västerås, Sweden}
-\supervisors{Supervisor-Name}{Mälardalen University, Västerås, Sweden}
-\companySupervisors{Supervisor-Name}{Company name, location}
-
-\theDate{\today} 
+\addSupervisor{Main-Supervisor}{First Lastname}{Mälardalen University}
+\addSupervisor{Co-Supervisor}{First Lastname}{Mälardalen University}
+\addSupervisor{Co-Supervisor}{First Lastname}{Mälardalen University}
 
 \begin{document}
 \titlePage
-% Begin actual text
+\setlength{\headheight}{14pt}
+\setlength{\footskip}{14pt}
 \frontmatter
-\input{sections/000-guideline} % Remove 000-guideline section
 \input{sections/abstract}
 \newpage
 %========= Tables ==========
@@ -56,20 +53,15 @@
 \newpage
 %\input{sections/Acknowledgments}
 % ============================= References ============================
-% \newpage
-\printbibliography
+\newpage
+\bibliographystyle{plainnat}
+\bibliography{references}
 \addcontentsline{toc}{section}{References}
-
 % ============================ Appendices =============================
-%\newpage
 %\begin{appendices}
-
 	%\input{appendices/appendices1}
 	%\clearpage
-	
 	%\input{appendices/appendices2}
 	%\clearpage
-	
 %\end{appendices}
-
 \end{document}

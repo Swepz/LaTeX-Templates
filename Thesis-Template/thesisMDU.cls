@@ -1,23 +1,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%% INFORMATION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Master thesis template for Mälardalen University                             %
 % Layout design: Mälardalen University                                         %
-% Class creator: Emil Persson (epn17006@student.mdh.se)                        %
-% Version:       1.0 (2020/05/03)                                              %
+% Class and structure designer: Emil Persson (emil.persson@mdu.se)             %
+% Version:       1.0 (2023/05/03)                                              %
 % Licence: CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)%  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%% NOTICE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \NewDocumentCommand and \DeclareDocumentCommand utilized are inspired by:    %
-%   https://www.latextemplates.com/template/masters-doctoral-thesis            %
-%   CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)        %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \NeedsTeXFormat{LaTeX2e}
-\newcommand{\classname}{thesisMDH}
-\ProvidesClass{\classname}[2020/05/03 thesisMDH]
+\newcommand{\classname}{thesisMDU}
+\ProvidesClass{\classname}[2023/05/03 thesisMDU]
 \LoadClass[a4paper, titlepage]{article}
-
-
+\RequirePackage{xparse}
+\RequirePackage{etoolbox}
 \RequirePackage{graphicx}
 \graphicspath{{images/}}
 \RequirePackage{mathtools}
@@ -33,75 +27,101 @@
 \RequirePackage{caption}
 \RequirePackage{float}
 \RequirePackage{xcolor}
-
-
+\RequirePackage{acronym}
+\RequirePackage{times}
+\RequirePackage{booktabs}
+\RequirePackage{amssymb}
+\RequirePackage[pdfusetitle, allcolors=black, hidelinks, pdftex]{hyperref}
+\RequirePackage[capitalise]{cleveref}
 % Swedish language package 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
 \RequirePackage[swedish,british]{babel}
 
 % Bibliography
-\RequirePackage[style=ieee]{biblatex}
+\RequirePackage[numbers]{natbib} 
 \RequirePackage{csquotes}
 
+% Define new commands for font sizes
+\newcommand{\authorsize}{\Large}
+\newcommand{\emailsize}{\small}
+\newcommand{\supervisorsize}{\large}
+\newcommand{\titlesize}{\Huge}
 
-\RequirePackage{scrhack} % Loads packages fixes
+% Define new command for title page author horizontal spacing
+\newlength{\authorwidth}
+\setlength{\authorwidth}{0.28\linewidth}
 
 \NewDocumentCommand{\thesisTitle} { o m }{%
  \IfValueTF{#1}{\def\shorttitle{#1}}{\def\shorttitle{#2}}%
  \def\@title{#2}%
- \def\theTitleName{\huge{\textbf{\uppercase{#2}}}}%
+ \def\theTitleName{\titlesize{\textbf{\uppercase{#2}}}}%
 }
-% \DeclareDocumentCommand{\author}{m m}{
-% \newcommand{\authorName}{\LARGE{#1} \\ \large{#2}}\renewcommand{\@author}{#1}}
 
-\NewDocumentCommand{\authorOne}{m m}{
-\newcommand{\authorOneName}{\Large{#1} \\ \parindent0pt\small{#2}}}
+\ExplSyntaxOn
+\seq_new:N \l_authors_seq
+\keys_define:nn { authors } {
+  name .tl_set:N = \l_author_name_tl,
+  email .tl_set:N = \l_author_email_tl,
+}
+\NewDocumentCommand{\addAuthor}{mm}{
+  \keys_set:nn { authors } { name = {#1}, email = {#2} }
+  \seq_put_right:Nx \l_authors_seq { 
+    { \exp_not:V \l_author_name_tl } { \exp_not:V \l_author_email_tl } 
+  }
+}
 
-\NewDocumentCommand{\authorTwo}{m m}{
-\newcommand{\authorTwoName}{\Large{#1} \\ \parindent0pt\small{#2}}}
+\NewDocumentCommand{\printAuthors}{}{
+  \begin{center}
+  \seq_map_inline:Nn \l_authors_seq { 
+    \begin{minipage}[t]{\authorwidth}
+        \centering
+        \authorsize {\tl_item:nn {##1}{1}} \\
+        \emailsize \tl_item:nn {##1}{2}
+        \vspace{2em}
+    \end{minipage}\hspace{1em}
+  }
+  \end{center}
+}
 
-\NewDocumentCommand{\authorThree}{m m}{
-\newcommand{\authorThreeName}{\Large{#1} \\ \parindent0pt\small{#2}}}
-
-\NewDocumentCommand{\authorFour}{m m}{
-\newcommand{\authorFourName}{\Large{#1} \\ \parindent0pt\small{#2}}}
-
+\ExplSyntaxOff
+\ExplSyntaxOn
+\seq_new:N \l_supervisors_seq
+\keys_define:nn { supervisors } {
+  type .tl_set:N = \l_supervisor_type_tl,
+  name .tl_set:N = \l_supervisor_name_tl,
+  affiliation .tl_set:N = \l_supervisor_affiliation_tl,
+}
+\NewDocumentCommand{\addSupervisor}{mmm}{
+  \keys_set:nn { supervisors } { type = {#1}, name = {#2}, affiliation = {#3} }
+  \seq_put_right:Nx \l_supervisors_seq { 
+    { \exp_not:V \l_supervisor_type_tl } { \exp_not:V \l_supervisor_name_tl } { \exp_not:V \l_supervisor_affiliation_tl } 
+  }
+}
+\NewDocumentCommand{\printSupervisors}{}{
+  \seq_map_inline:Nn \l_supervisors_seq { 
+    \supervisorsize { \tl_item:nn {##1}{1}:~\tl_item:nn {##1}{2} } \\ 
+    \footnotesize { \tl_item:nn {##1}{3} } \\
+    \vspace{0.5em} 
+  }
+}
+\ExplSyntaxOff
 
 \NewDocumentCommand{\subject}{m}{\newcommand{\subjectName}{\Large{#1}}}
 \NewDocumentCommand{\university}{m}{\newcommand{\uniName}{\Large{#1}}}
 \NewDocumentCommand{\department}{m}{\newcommand{\depName}{\Large{#1}}}
 \NewDocumentCommand{\degree}{m}{\newcommand{\degreeName}{\Large{#1}}}
 
-
-\NewDocumentCommand{\examiner}{m m}{
-\newcommand{\examName}{\large{Examiner: #1} \\ \small{#2}}}
-
-\NewDocumentCommand{\supervisors}{m m}{
-\newcommand{\superName}{\large{Supervisor(s): #1} \\ \small{#2}}}
-
-\NewDocumentCommand{\companySupervisors}{m m}{
-\newcommand{\compSuperName}{\large{Company Supervisor(s): #1} \\ \small{#2}}}
-
 \NewDocumentCommand{\theDate}{m}{\newcommand{\datum}{\vspace*{\fill}\large #1}}
-
 \newcommand{\warning}[1]{\centering{\textcolor{red}{\large{\textbf{\uppercase{#1\\}}}}}}
 \newcommand{\alert}[1]{\textcolor{red}{\textit{\scriptsize\textbf{\uppercase{#1}}}}}
 
-
-% \newcommand{\moderator}[2]{
-%   \Large{#1}: 
-%     \begin{minipage}[t]{0,7\textwidth}
-%         \large{#2}\\
-%     \end{minipage}\\[0.5cm] 
-%   }
-  
 \newcommand{\titlePage}{
     \begin{titlepage}
         \begin{center}
             \IfFileExists{images/MDHlogga.eps}{
             \begin{flushleft}
-              \vspace*{-10mm}
+              \vspace*{-4em}
             \begin{figure}[H]\includegraphics[width=40mm]{images/MDHlogga.eps}
     		\end{figure}
             \end{flushleft}
@@ -110,47 +130,27 @@
     		\warning{MDHlogo \\ missing}
     		\end{flushleft}
     		}
-    		
-    		
-            \ifdef{\uniName}{\vspace{-5mm}\uniName\\}{\warning{Missing university name}}
-            
+            \vspace*{-3em}
+            \ifdef{\uniName}{\uniName\\}{\warning{Missing university name}}
             \ifdef{\depName}{\depName\\}{\warning{Missing department name}} 
             
             \noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}} \\
-            \vspace{5mm}
-            
+            \vspace*{1em}
             \ifdef{\subjectName}{\subjectName}{\warning{Missing course name}} \\
-            \vspace{10mm}
-            
+            \vspace{3em}
     		\ifdef{\theTitleName}{\theTitleName}{\warning{Missing title}} \\
-    		\vspace{25mm}
-    		
-    		\ifdef{\authorOneName}{\authorOneName \\ \vspace{5mm}}{\warning{Missing authorOne}} 
-    		
-    		\ifdef{\authorTwoName}{\authorTwoName \\ \vspace{5mm}}{}
-    		
-    		\ifdef{\authorThreeName}{\authorThreeName \\ \vspace{5mm}}{}
-    		
-    		\ifdef{\authorFourName}{\authorFourName \\}{}
-
-            \vspace{15mm}
+    		\vspace{3em}
+        \printAuthors
             \begin{flushleft}
-            
-                \ifdef{\examName}{\examName \\ \vspace{5mm}}{}
-                
-                \ifdef{\superName}{\superName \\ \vspace{5mm}}{}
-                
-                \ifdef{\compSuperName}{\compSuperName \\}{}
-                
+              \vfill
+              \printSupervisors
             \end{flushleft}
-            \ifdef{\datum}{\datum}{\vspace*{\hfill}\warning{Missing date}}
+            \vspace*{\fill}\large \today
         \end{center}
     \end{titlepage}
 }
 
-
 % Set font
-%\setromanfont{Calibri}
 \renewcommand\contentsname{Table of Contents}
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 
@@ -184,23 +184,10 @@
 
 \renewenvironment{abstract}{
   \begin{center}%
-  \bfseries\abstractname\vspace{-.5em}\vspace{0pt}
+    \bfseries\itshape\abstractname\vspace{-.5em}\vspace{0pt}
   \end{center}
-  \itshape
-}
-
-% Code style
-\lstset{
-    backgroundcolor=\color[rgb]{0.92,0.92,0.92},
-	basicstyle=\footnotesize,
-	showspaces=false,
-	showstringspaces=false,
-	showtabs=false,
-	tabsize=2,
-	captionpos=b,
-	breaklines=false,
-	keywordstyle=\color[rgb]{0,0,1},
-	commentstyle=\color[rgb]{0.133,0.545,0.133}
+  \itshape\bfseries
+}{
 }
 
 % Page style
@@ -212,7 +199,7 @@
 \fancyhead[R]{#1}
 \fancyhead[L]{#2}
 % \fancyfoot[L]{}
-%\fancyfoot[LE,RO]{\thepage}
+% \fancyfoot[LE,RO]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 }
