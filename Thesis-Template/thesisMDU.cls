@@ -50,7 +50,7 @@
 
 % Define new command for title page author horizontal spacing
 \newlength{\authorwidth}
-\setlength{\authorwidth}{0.28\linewidth}
+\setlength{\authorwidth}{0.30\linewidth}
 
 \NewDocumentCommand{\thesisTitle} { o m }{%
  \IfValueTF{#1}{\def\shorttitle{#1}}{\def\shorttitle{#2}}%
@@ -119,10 +119,10 @@
 \newcommand{\titlePage}{
     \begin{titlepage}
         \begin{center}
-            \IfFileExists{images/MDHlogga.eps}{
+            \IfFileExists{images/MDUlogo.eps}{
             \begin{flushleft}
               \vspace*{-4em}
-            \begin{figure}[H]\includegraphics[width=40mm]{images/MDHlogga.eps}
+            \begin{figure}[H]\includegraphics[width=40mm]{images/MDUlogo.eps}
     		\end{figure}
             \end{flushleft}
             }{
@@ -148,6 +148,7 @@
             \vspace*{\fill}\large \today
         \end{center}
     \end{titlepage}
+
 }
 
 % Set font
