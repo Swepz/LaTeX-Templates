@@ -148,6 +148,8 @@
             \vspace*{\fill}\large \today
         \end{center}
     \end{titlepage}
+    \setlength{\headheight}{14pt}
+    \setlength{\footskip}{14pt}
 
 }
 
