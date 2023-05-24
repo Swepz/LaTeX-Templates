@@ -2,7 +2,7 @@
 % Master thesis template for Mälardalen University                             %
 % Layout design: Mälardalen University                                         %
 % Class and structure designer: Emil Persson (emil.persson@mdu.se)             %
-% Version:       1.0 (2023/05/03)                                              %
+% Version:       1.1 (2023/05/03)                                              %
 % Licence: CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)%  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
