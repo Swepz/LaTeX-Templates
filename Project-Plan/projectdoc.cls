@@ -33,6 +33,7 @@
 \RequirePackage{mdframed}
 
 \RequirePackage[pdfusetitle, allcolors=black, hidelinks, pdftex]{hyperref}
+\RequirePackage[numbers]{natbib}
 \RequirePackage{csquotes}
 \RequirePackage{scrhack} % Loads packages fixes
 \RequirePackage{etoolbox}
