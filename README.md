@@ -1,6 +1,6 @@
-# LaTeX Templates for Bachelor's, Master's, and Ph.D. Students
+# LaTeX Templates for Bachelor's nad Master's
 
-This repository provides a suite of LaTeX templates designed with Bachelor's, Master's, and Ph.D. students in mind. While they are made to cater to the needs of a broad range of students, the templates are particularly tailored for Robotics Engineering students. 
+This repository provides a suite of LaTeX templates designed with Bachelor's and Master's students in mind. While they are made to cater to the needs of a broad range of students, the templates are particularly tailored for Robotics Engineering students. 
 
 ## Purpose
 These templates serve various purposes, such as presentations, self-evaluations, project planning, and thesis writing. While some templates have a specific design focus, they are adaptable and versatile, making them applicable to various academic requirements.
