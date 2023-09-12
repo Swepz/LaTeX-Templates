@@ -1,4 +1,4 @@
-# LaTeX Templates for Bachelor's nad Master's
+# LaTeX Templates for Bachelor's and Master's
 
 This repository provides a suite of LaTeX templates designed with Bachelor's and Master's students in mind. While they are made to cater to the needs of a broad range of students, the templates are particularly tailored for Robotics Engineering students. 
 
