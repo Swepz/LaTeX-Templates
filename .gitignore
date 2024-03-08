@@ -292,3 +292,10 @@ TSWLatexianTemp*
 #*Notes.bib
 
 .DS_Store
+
+# Visual Studio Code
+
+.vscode/
+
+# Local History for Visual Studio Code
+.history/
