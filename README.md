@@ -23,7 +23,9 @@ The `Self-Evaluation` template follows an older examination structure, while the
 ## Getting Started
 
 You can clone this repository and begin using the templates straight away. Each folder contains a LaTeX template about its title. 
-Either clone the repository or press "Code" and Download Zip.
+Either clone the repository or press "Code" and Download Zip. 
+
+- **NOTE**: If separating a folder like "Thesis" from this repo, copy the `.gitignore` to the separated folder.
 
 ## Usage
 
