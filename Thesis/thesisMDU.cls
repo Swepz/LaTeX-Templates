@@ -200,6 +200,7 @@
 \fancyhead[L]{#2}
 \fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{2pt}
 \renewcommand{\footruleskip}{10pt} % Space between hline and page number
 \renewcommand{\footrulewidth}{0.4pt} % Adjust this for thicker or thinner line, as desired
 }
