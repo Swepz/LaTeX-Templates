@@ -19,7 +19,7 @@
 \RequirePackage{enumerate}
 \RequirePackage{listings}
 \RequirePackage[titletoc]{appendix}
-\RequirePackage[margin=3cm]{geometry}
+\RequirePackage[a4paper,margin=3cm, bottom=1.5cm, includefoot]{geometry}
 \RequirePackage[absolute]{textpos}
 \RequirePackage[section]{placeins}
 \RequirePackage{url}
@@ -148,18 +148,14 @@
             \vspace*{\fill}\large \today
         \end{center}
     \end{titlepage}
-    \setlength{\headheight}{14pt}
-    \setlength{\footskip}{14pt}
-
 }
 
 % Set font
 \renewcommand\contentsname{Table of Contents}
-\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 
 \newcommand{\circR}{\textsuperscript{\textregistered}}
 % set the style for the section and subsection headers
-\renewcommand{\thesection}{\thepart \arabic{section}.}
+\renewcommand{\thesection}{\thepart \arabic{section}}
 \renewcommand{\thesubsection}{\thepart \arabic{section}.\arabic{subsection}}
 
 \makeatletter
@@ -193,18 +189,28 @@
 }{
 }
 
+% \RequirePackage{lastpage}
 % Page style
 \pagestyle{fancy}
-\marginparsep = 0pt
+\fancyhf{}
 
 \newcommand{\fancyHeader}[2]{
 \thispagestyle{fancy}
 \fancyhead[R]{#1}
 \fancyhead[L]{#2}
-% \fancyfoot[L]{}
-% \fancyfoot[LE,RO]{\thepage}
+\fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\footruleskip}{10pt} % Space between hline and page number
+\renewcommand{\footrulewidth}{0.4pt} % Adjust this for thicker or thinner line, as desired
+}
+
+
+\captionsetup[figure]{
+  format=plain, 
+  % labelsep=period,
+  font={footnotesize},
+  labelfont={bf}, % Bold label
+  textfont={it}   % Italic caption
 }
 
 \endinput
