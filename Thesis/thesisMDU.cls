@@ -27,7 +27,7 @@
 \RequirePackage{caption}
 \RequirePackage{float}
 \RequirePackage{xcolor}
-\RequirePackage{acronym}
+\RequirePackage[printonlyused]{acronym}
 \RequirePackage{times}
 \RequirePackage{booktabs}
 \RequirePackage{amssymb}
@@ -200,7 +200,7 @@
 \fancyhead[L]{#2}
 \fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
-\setlength{\headheight}{2pt}
+\setlength{\headheight}{13pt}
 \renewcommand{\footruleskip}{10pt} % Space between hline and page number
 \renewcommand{\footrulewidth}{0.4pt} % Adjust this for thicker or thinner line, as desired
 }
@@ -213,5 +213,19 @@
   labelfont={bf}, % Bold label
   textfont={it}   % Italic caption
 }
+
+\addtolength{\topmargin}{-11pt}
+
+% Make acronym list dotted
+\makeatletter
+\expandafter\patchcmd\csname AC@\AC@prefix{}@acro\endcsname
+ {#1]{#3}}
+ {#1]\dotfill\ {#3}}
+ {}{}
+\expandafter\patchcmd\csname AC@\AC@prefix{}@acro\endcsname
+ {#1]{#3}}
+ {#1]\dotfill\ {#3}}
+ {}{}
+\makeatother
 
 \endinput
