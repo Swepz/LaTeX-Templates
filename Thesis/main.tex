@@ -46,7 +46,10 @@
 %\input{sections/Acknowledgments}
 % ============================= References ============================
 \newpage
-\bibliographystyle{unsrtnat}
+% Adjust the bibliography spacing between references to fit IEEEtran
+\setlength{\bibsep}{0pt plus 0.3ex}
+% abbrvnat is the style for IEEEtran
+\bibliographystyle{abbrvnat}
 \bibliography{references}
 \addcontentsline{toc}{section}{References}
 % ============================ Appendices =============================
